@@ -5,6 +5,12 @@ body {
 }
 
 
+body {
+  background: url('bg-geometry.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
