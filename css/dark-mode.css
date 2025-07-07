@@ -1,0 +1,28 @@
+/* Dark Mode Specific Styles */
+.dark-mode {
+  --card-bg: #1E1E1E;
+  --text-dark: #F8F9FA;
+  --text-light: #ADB5BD;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .main-header {
+  background-color: #1E1E1E;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .search-box input {
+  background-color: #2D2D2D;
+  border-color: #3D3D3D;
+  color: var(--white);
+}
+
+.dark-mode .category-card,
+.dark-mode .tool-card {
+  background-color: #1E1E1E;
+}
+
+.dark-mode .tool-description,
+.dark-mode .category-card p {
+  color: #B0B0B0;
+}
