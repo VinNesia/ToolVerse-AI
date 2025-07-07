@@ -39,4 +39,5 @@ const tools = [
         tags: ["notes", "organization"],
         isPopular: false
     }
+    // Tambahkan lebih banyak tools di sini...
 ];
