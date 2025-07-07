@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark Tools - Nesia AI Directory</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>Bookmark Tools</h1>
+        <a href="index.html"><button>Kembali ke Home</button></a>
+    </header>
+
+    <div class="container">
+        <div id="bookmarkedTools" class="tools-list"></div>
+    </div>
+
+    <script>
+        const bookmarks = JSON.parse(localStorage.getItem('bookmarkedTools')) || [];
+        fetch('tools.json')
+            .then(res => res.json())
+            .then(tools => {
+                const filtered = tools.filter(t => bookmarks.includes(t.id));
+                const container = document.getElementById('bookmarkedTools');
+                if (filtered.length === 0) {
+                    container.innerHTML = '<p>Belum ada tools yang dibookmark.</p>';
+                } else {
+                    filtered.forEach(tool => {
+                        const card = document.createElement('div');
+                        card.className = 'tool-card';
+                        card.innerHTML = \`
+                            <h3>\${tool.name}</h3>
+                            <p>\${tool.description}</p>
+                            <a href="\${tool.url}" target="_blank">Kunjungi</a>
+                        \`;
+                        container.appendChild(card);
+                    });
+                }
+            });
+    </script>
+</body>
+</html>
