@@ -31,3 +31,22 @@ if (localStorage.getItem('darkMode') === 'true') {
 
 // Jalankan saat halaman dimuat
 document.addEventListener('DOMContentLoaded', tampilkanToolsPopuler);
+document.addEventListener("DOMContentLoaded", () => {
+  const lazyImages = document.querySelectorAll("img[data-src]");
+  
+  const lazyLoad = (img) => {
+    img.setAttribute("src", img.getAttribute("data-src"));
+    img.onload = () => img.removeAttribute("data-src");
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        lazyLoad(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  lazyImages.forEach(img => observer.observe(img));
+});
