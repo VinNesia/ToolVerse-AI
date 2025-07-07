@@ -4,53 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tools Nesia - Direktori AI Tools Terbaik</title>
+    <meta name="description" content="Tools Nesia - Direktori lengkap alat AI untuk produktivitas, desain, dan pengembangan.">
+    <meta name="keywords" content="AI tools, ChatGPT, MidJourney, artificial intelligence">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body class="light-mode">
     <header>
-        <h1>🔧 Tools Nesia</h1>
-        <nav>
-            <a href="index.html">Beranda</a>
-            <a href="tools.html">Semua Tools</a>
-            <a href="bookmarks.html">Bookmark</a>
-            <a href="about.html">Tentang</a>
-            <button id="darkModeToggle">🌙 Mode Gelap</button>
-        </nav>
-        <input type="text" id="searchBar" placeholder="Cari tools AI...">
+        <div class="container">
+            <h1>🔧 Tools Nesia</h1>
+            <nav>
+                <a href="index.html">Beranda</a>
+                <a href="tools.html">Semua Tools</a>
+                <a href="bookmarks.html">Bookmark</a>
+                <a href="about.html">Tentang</a>
+                <button id="darkModeToggle">🌙 Mode Gelap</button>
+            </nav>
+            <input type="text" id="searchBar" placeholder="Cari tools AI...">
+        </div>
     </header>
 
     <main>
         <section class="hero">
-            <h2>Direktori Tools AI Terlengkap</h2>
-            <p>Temukan ratusan alat AI untuk produktivitas, desain, coding, dan lebih banyak lagi!</p>
+            <div class="container">
+                <h2>Direktori Tools AI Terlengkap</h2>
+                <p>Temukan ratusan alat AI untuk produktivitas, desain, coding, dan lebih banyak lagi!</p>
+            </div>
         </section>
 
         <section class="popular-tools">
-            <h3>🔥 Populer Hari Ini</h3>
-            <div class="tool-grid" id="dailyPopularTools">
-                <!-- Tools populer akan diisi oleh JavaScript -->
+            <div class="container">
+                <h3>🔥 Populer Hari Ini</h3>
+                <div class="tool-grid" id="dailyPopularTools">
+                    <!-- Tools populer akan diisi oleh JavaScript -->
+                </div>
             </div>
         </section>
 
         <section class="categories">
-            <h3>📂 Kategori</h3>
-            <div class="category-list">
-                <button class="category-btn" data-category="all">Semua</button>
-                <button class="category-btn" data-category="productivity">Produktivitas</button>
-                <button class="category-btn" data-category="design">Desain</button>
-                <button class="category-btn" data-category="writing">Menulis</button>
-                <button class="category-btn" data-category="coding">Coding</button>
+            <div class="container">
+                <h3>📂 Kategori</h3>
+                <div class="category-list">
+                    <button class="category-btn" data-category="all">Semua</button>
+                    <button class="category-btn" data-category="productivity">Produktivitas</button>
+                    <button class="category-btn" data-category="design">Desain</button>
+                    <button class="category-btn" data-category="writing">Menulis</button>
+                    <button class="category-btn" data-category="coding">Coding</button>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Tools Nesia. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2023 Tools Nesia. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="js/tools-data.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/bookmarks.js"></script>
 </body>
 </html>
