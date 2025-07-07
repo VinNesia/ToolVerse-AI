@@ -3,68 +3,195 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tool Verse AI - Direktori Tools AI Terbaik</title>
-  <meta name="description" content="Temukan 50+ tools AI untuk produktivitas, desain, dan coding. Rating & ulasan pengguna.">
-  <!-- OpenGraph -->
-  <meta property="og:title" content="Tool Verse AI">
-  <meta property="og:image" content="https://tool-verse-ai.vercel.app/assets/images/preview.jpg">
+  <title>Tool Verse AI - Direktori Tools AI Profesional</title>
+  <meta name="description" content="Temukan 100+ tools AI terbaik untuk produktivitas, desain, dan pengembangan. Rating & ulasan jujur.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico">
+  
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/dark-mode.css">
-  <!-- Favicon -->
-  <link rel="icon" href="assets/favicon.ico">
 </head>
 <body class="light-mode">
   <!-- Header -->
-  <header>
+  <header class="main-header">
     <div class="container">
       <div class="logo">
-        <img src="assets/images/logo.png" alt="Logo" width="40" height="40">
-        <h1>Tool Verse AI</h1>
+        <img src="assets/images/logo.svg" alt="Tool Verse AI" width="40">
+        <span>ToolVerse</span>
       </div>
-      <nav>
-        <a href="index.html" class="active">Beranda</a>
-        <a href="tools.html">Tools</a>
+      
+      <nav class="main-nav">
+        <a href="#" class="active">Beranda</a>
+        <a href="#">Tools</a>
+        <a href="#">Kategori</a>
         <a href="#">Bookmark</a>
       </nav>
-      <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Cari tools...">
-        <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      
+      <div class="header-actions">
+        <div class="search-box">
+          <input type="text" placeholder="Cari tools...">
+          <button class="search-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </button>
+        </div>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
       </div>
-      <button id="darkModeToggle">🌙</button>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <h2>Platform AI Terbaik untuk Segala Kebutuhan</h2>
-      <p>50+ tools terkurasi dengan rating dan ulasan jujur.</p>
-      <a href="tools.html" class="cta-button">Jelajahi Sekarang</a>
+      <div class="hero-content">
+        <h1>Temukan Tools AI Terbaik</h1>
+        <p class="hero-subtitle">100+ alat terkurasi untuk meningkatkan produktivitas dan kreativitas Anda</p>
+        
+        <div class="hero-search">
+          <input type="text" placeholder="Contoh: ChatGPT, MidJourney...">
+          <button class="search-button">Cari</button>
+        </div>
+        
+        <div class="hero-tags">
+          <span>Populer:</span>
+          <a href="#">AI Writing</a>
+          <a href="#">Design Tools</a>
+          <a href="#">Coding Assistant</a>
+        </div>
+      </div>
+      
+      <div class="hero-illustration">
+        <img src="assets/images/hero-illustration.svg" alt="Ilustrasi AI" loading="lazy">
+      </div>
     </div>
   </section>
 
-  <!-- Tools Section -->
-  <main class="container">
-    <div class="section-header">
-      <h3>🔥 Populer Minggu Ini</h3>
-      <a href="tools.html" class="view-all">Lihat Semua</a>
+  <!-- Featured Categories -->
+  <section class="categories">
+    <div class="container">
+      <h2 class="section-title">Jelajahi Kategori</h2>
+      <div class="category-grid">
+        <a href="#" class="category-card">
+          <div class="category-icon" style="background-color: #E3F2FD;">
+            <img src="assets/images/productivity-icon.svg" alt="Produktivitas">
+          </div>
+          <h3>Produktivitas</h3>
+          <p>32 Tools</p>
+        </a>
+        
+        <a href="#" class="category-card">
+          <div class="category-icon" style="background-color: #F3E5F5;">
+            <img src="assets/images/design-icon.svg" alt="Desain">
+          </div>
+          <h3>Desain</h3>
+          <p>28 Tools</p>
+        </a>
+        
+        <a href="#" class="category-card">
+          <div class="category-icon" style="background-color: #E8F5E9;">
+            <img src="assets/images/coding-icon.svg" alt="Coding">
+          </div>
+          <h3>Coding</h3>
+          <p>18 Tools</p>
+        </a>
+        
+        <a href="#" class="category-card">
+          <div class="category-icon" style="background-color: #FFF3E0;">
+            <img src="assets/images/video-icon.svg" alt="Video">
+          </div>
+          <h3>Video</h3>
+          <p>12 Tools</p>
+        </a>
+      </div>
     </div>
-    <div class="tools-grid" id="toolsContainer">
-      <!-- Tools akan diisi oleh JavaScript -->
+  </section>
+
+  <!-- Popular Tools Section -->
+  <section class="tools-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">🔥 Tools Populer</h2>
+        <a href="#" class="view-all">Lihat Semua</a>
+      </div>
+      
+      <div class="tools-grid" id="toolsContainer">
+        <!-- Tools akan diisi oleh JavaScript -->
+      </div>
     </div>
-  </main>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Siap Meningkatkan Produktivitas?</h2>
+      <p>Daftar untuk mendapatkan rekomendasi tools AI terbaru setiap minggu</p>
+      <form class="cta-form">
+        <input type="email" placeholder="Alamat email Anda">
+        <button type="submit">Berlangganan</button>
+      </form>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="main-footer">
     <div class="container">
-      <p>&copy; 2023 Tool Verse AI. All rights reserved.</p>
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="logo">
+            <img src="assets/images/logo-white.svg" alt="Tool Verse AI" width="40">
+            <span>ToolVerse</span>
+          </div>
+          <p>Direktori tools AI terbesar dengan rating dan ulasan jujur dari komunitas.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Navigasi</h3>
+          <ul>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Semua Tools</a></li>
+            <li><a href="#">Kategori</a></li>
+            <li><a href="#">Bookmark</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Kategori</h3>
+          <ul>
+            <li><a href="#">Produktivitas</a></li>
+            <li><a href="#">Desain</a></li>
+            <li><a href="#">Coding</a></li>
+            <li><a href="#">Video</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-social">
+          <h3>Ikuti Kami</h3>
+          <div class="social-icons">
+            <a href="#"><img src="assets/images/twitter-icon.svg" alt="Twitter"></a>
+            <a href="#"><img src="assets/images/facebook-icon.svg" alt="Facebook"></a>
+            <a href="#"><img src="assets/images/linkedin-icon.svg" alt="LinkedIn"></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 Tool Verse AI. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="#">Kebijakan Privasi</a>
+          <a href="#">Syarat Penggunaan</a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <!-- JavaScript -->
   <script src="js/tools-data.js"></script>
-  <script src="js/lazy-load.js"></script>
-  <script src="js/script.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
