@@ -1,51 +1,41 @@
-// Bookmark Functionality
-function toggleBookmark(toolId) {
-  let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-  
-  if (bookmarks.includes(toolId)) {
-    // Remove bookmark
-    bookmarks = bookmarks.filter(id => id !== toolId);
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-    showNotification('Tool removed from bookmarks', 'info');
-  } else {
-    // Add bookmark
-    bookmarks.push(toolId);
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-    showNotification('Tool bookmarked!', 'success');
+// Simpan bookmark
+function simpanBookmark(toolId) {
+  let bookmark = JSON.parse(localStorage.getItem('bookmark')) || [];
+  if (!bookmark.includes(toolId)) {
+    bookmark.push(toolId);
+    localStorage.setItem('bookmark', JSON.stringify(bookmark));
+    alert("Tool ditambahkan ke bookmark!");
   }
-  
-  updateBookmarkButtons();
 }
 
-function updateBookmarkButtons() {
-  const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-  document.querySelectorAll('.bookmark-btn').forEach(btn => {
-    const toolId = parseInt(btn.dataset.toolId);
-    btn.innerHTML = bookmarks.includes(toolId) ? '⭐ Bookmarked' : '☆ Bookmark';
-  });
+// Hapus bookmark
+function hapusBookmark(toolId) {
+  let bookmark = JSON.parse(localStorage.getItem('bookmark')) || [];
+  bookmark = bookmark.filter(id => id !== toolId);
+  localStorage.setItem('bookmark', JSON.stringify(bookmark));
+  alert("Tool dihapus dari bookmark!");
 }
 
-function showNotification(message, type) {
-  const notification = document.createElement('div');
-  notification.className = `notification ${type}`;
-  notification.textContent = message;
-  document.body.appendChild(notification);
-  
-  setTimeout(() => {
-    notification.classList.add('fade-out');
-    setTimeout(() => notification.remove(), 300);
-  }, 3000);
+// Tampilkan bookmark
+function tampilkanBookmark() {
+  const bookmark = JSON.parse(localStorage.getItem('bookmark')) || [];
+  const toolsContainer = document.getElementById('bookmarkTools');
+  const toolsData = tools.filter(tool => bookmark.includes(tool.id));
+
+  toolsContainer.innerHTML = toolsData.map(tool => `
+    <div class="tool-card">
+      <img src="${tool.logo}" alt="${tool.name}" class="tool-img">
+      <div class="tool-content">
+        <h3 class="tool-title">${tool.name}</h3>
+        <p class="tool-description">${tool.description}</p>
+        <a href="${tool.url}" target="_blank" class="tool-link">Kunjungi Situs</a>
+        <button onclick="hapusBookmark(${tool.id})" class="bookmark-btn">🗑️ Hapus</button>
+      </div>
+    </div>
+  `).join('');
 }
 
-// Initialize bookmarks
-document.addEventListener('DOMContentLoaded', () => {
-  updateBookmarkButtons();
-  
-  // Handle bookmark button clicks
-  document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('bookmark-btn')) {
-      const toolId = parseInt(e.target.dataset.toolId);
-      toggleBookmark(toolId);
-    }
-  });
-});
+// Jalankan saat halaman bookmark dimuat
+if (window.location.pathname.includes('bookmarks.html')) {
+  document.addEventListener('DOMContentLoaded', tampilkanBookmark);
+}
