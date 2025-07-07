@@ -1,6 +1,5 @@
-const lazyLoad = () => {
+function lazyLoad() {
   const lazyImages = document.querySelectorAll('img.lazyload');
-  
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -13,6 +12,7 @@ const lazyLoad = () => {
   });
 
   lazyImages.forEach(img => observer.observe(img));
-};
+}
 
+// Jalankan saat semua konten selesai dimuat
 document.addEventListener('DOMContentLoaded', lazyLoad);
