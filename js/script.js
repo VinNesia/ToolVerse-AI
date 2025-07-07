@@ -1,37 +1,65 @@
-// Dark Mode
-document.getElementById('darkModeToggle').addEventListener('click', () => {
+// ========== DARK MODE ==========
+const darkModeToggle = document.getElementById('darkModeToggle');
+const currentMode = localStorage.getItem('darkMode');
+
+// Set initial mode
+if (currentMode === 'true') {
+  document.body.classList.add('dark-mode');
+  darkModeToggle.textContent = '☀️';
+}
+
+// Toggle mode
+darkModeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
-  localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+  const isDark = document.body.classList.contains('dark-mode');
+  localStorage.setItem('darkMode', isDark);
+  darkModeToggle.textContent = isDark ? '☀️' : '🌙';
 });
 
-// Pencarian
-document.getElementById('searchInput').addEventListener('input', (e) => {
-  const keyword = e.target.value.toLowerCase();
-  const results = searchTools(keyword);
-  renderTools(results);
-});
-
-// Render Tools
+// ========== RENDER TOOLS ==========
 function renderTools(tools) {
-  const container = document.getElementById('popularTools');
+  const container = document.getElementById('toolsContainer');
   container.innerHTML = tools.map(tool => `
     <div class="tool-card">
-      <img data-src="${tool.logo}" alt="${tool.name}" class="lazyload">
-      <h3>${tool.name}</h3>
-      <p>${tool.description}</p>
-      <div class="tool-rating">
-        <span class="stars">${'⭐'.repeat(Math.floor(tool.rating))}</span>
-        <span>(${tool.reviews} ulasan)</span>
+      <div class="tool-img-container">
+        <img 
+          src="assets/images/placeholder.jpg" 
+          data-src="${tool.logo}" 
+          alt="${tool.name}" 
+          class="tool-img lazyload"
+        >
       </div>
-      <a href="${tool.url}" target="_blank" class="cta-button">Kunjungi</a>
+      <div class="tool-content">
+        <h3 class="tool-title">${tool.name}</h3>
+        <p class="tool-description">${tool.description}</p>
+        <div class="tool-rating">
+          <span class="stars">${'⭐'.repeat(Math.floor(tool.rating))}${tool.rating % 1 ? '½' : ''}</span>
+          <span class="review-count">(${tool.reviews.toLocaleString()} ulasan)</span>
+        </div>
+        <a href="${tool.url}" target="_blank" class="tool-link">Kunjungi</a>
+      </div>
     </div>
   `).join('');
 }
 
-// Inisialisasi
+// ========== SEARCH FUNCTION ==========
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  const keyword = e.target.value.toLowerCase();
+  const results = tools.filter(tool => 
+    tool.name.toLowerCase().includes(keyword) || 
+    tool.description.toLowerCase().includes(keyword)
+  );
+  renderTools(results);
+});
+
+// ========== INITIAL LOAD ==========
 document.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
+  // Render popular tools
+  const popularTools = tools.filter(tool => tool.isPopular);
+  renderTools(popularTools);
+  
+  // Initialize lazy loading
+  if (typeof lazyLoad === 'function') {
+    lazyLoad();
   }
-  renderTools(getPopularTools());
 });
