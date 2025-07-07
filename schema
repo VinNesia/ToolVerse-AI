@@ -1,0 +1,13 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Tools Nesia",
+  "url": "https://toolsnesia.com/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://toolsnesia.com/tools.html?q={search_term}",
+    "query-input": "required name=search_term"
+  }
+}
+</script>
