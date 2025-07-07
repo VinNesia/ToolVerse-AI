@@ -77,4 +77,10 @@
   <script src="js/pagination.js"></script>
   <script src="js/script.js"></script>
 </body>
+  document.getElementById('ratingFilter').addEventListener('change', (e) => {
+  const minRating = parseFloat(e.target.value);
+  const filteredTools = tools.filter(tool => tool.rating >= minRating);
+  renderTools(filteredTools); // Fungsi render tools
+});
+
 </html>
