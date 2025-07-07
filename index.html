@@ -1,55 +1,85 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tools Nesia - Direktori AI Tools Terbaik</title>
-    <meta name="description" content="Tools Nesia - Direktori lengkap alat AI untuk produktivitas, desain, dan pengembangan.">
-    <meta name="keywords" content="AI tools, ChatGPT, MidJourney, artificial intelligence">
+    <title>Tools Nesia | AI Tools Directory</title>
+    <meta name="description" content="Discover the best AI tools for productivity, design, coding and more">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/favicon.ico">
 </head>
 <body class="light-mode">
     <header>
         <div class="container">
-            <h1>🔧 Tools Nesia</h1>
+            <div class="logo">
+                <img src="assets/logo.png" alt="Tools Nesia" width="40">
+                <span>Tools Nesia</span>
+            </div>
             <nav>
-                <a href="index.html">Beranda</a>
-                <a href="tools.html">Semua Tools</a>
-                <a href="bookmarks.html">Bookmark</a>
-                <a href="about.html">Tentang</a>
-                <button id="darkModeToggle">🌙 Mode Gelap</button>
+                <a href="index.html" class="active">Home</a>
+                <a href="tools.html">Tools</a>
+                <a href="bookmarks.html">Bookmarks</a>
+                <a href="about.html">About</a>
             </nav>
-            <input type="text" id="searchBar" placeholder="Cari tools AI...">
+            <div class="header-right">
+                <div class="search-container">
+                    <input type="text" placeholder="Search tools..." id="searchBar">
+                    <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </div>
+                <button id="darkModeToggle" class="mode-toggle">
+                    <span class="moon">🌙</span>
+                    <span class="sun">☀️</span>
+                </button>
+            </div>
         </div>
     </header>
 
     <main>
         <section class="hero">
             <div class="container">
-                <h2>Direktori Tools AI Terlengkap</h2>
-                <p>Temukan ratusan alat AI untuk produktivitas, desain, coding, dan lebih banyak lagi!</p>
+                <h1>Discover the Best AI Tools</h1>
+                <p>Curated directory of 500+ artificial intelligence tools for productivity, design, development and more</p>
+                <a href="tools.html" class="cta-button">Browse All Tools</a>
             </div>
         </section>
 
-        <section class="popular-tools">
+        <section class="popular-section">
             <div class="container">
-                <h3>🔥 Populer Hari Ini</h3>
-                <div class="tool-grid" id="dailyPopularTools">
-                    <!-- Tools populer akan diisi oleh JavaScript -->
+                <div class="section-header">
+                    <h2>🔥 Popular Tools</h2>
+                    <a href="popular.html" class="view-all">View All</a>
+                </div>
+                <div class="tools-grid" id="popularTools">
+                    <!-- Popular tools loaded via JS -->
                 </div>
             </div>
         </section>
 
-        <section class="categories">
+        <section class="categories-section">
             <div class="container">
-                <h3>📂 Kategori</h3>
-                <div class="category-list">
-                    <button class="category-btn" data-category="all">Semua</button>
-                    <button class="category-btn" data-category="productivity">Produktivitas</button>
-                    <button class="category-btn" data-category="design">Desain</button>
-                    <button class="category-btn" data-category="writing">Menulis</button>
-                    <button class="category-btn" data-category="coding">Coding</button>
+                <h2>✨ Browse by Category</h2>
+                <div class="categories-grid">
+                    <a href="tools.html?category=productivity" class="category-card">
+                        <div class="category-icon">📊</div>
+                        <h3>Productivity</h3>
+                        <p>125 tools</p>
+                    </a>
+                    <a href="tools.html?category=design" class="category-card">
+                        <div class="category-icon">🎨</div>
+                        <h3>Design</h3>
+                        <p>84 tools</p>
+                    </a>
+                    <a href="tools.html?category=writing" class="category-card">
+                        <div class="category-icon">✍️</div>
+                        <h3>Writing</h3>
+                        <p>72 tools</p>
+                    </a>
+                    <a href="tools.html?category=coding" class="category-card">
+                        <div class="category-icon">💻</div>
+                        <h3>Coding</h3>
+                        <p>68 tools</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -57,7 +87,33 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 Tools Nesia. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Tools Nesia</h3>
+                    <p>The most comprehensive AI tools directory on the web.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tools.html">All Tools</a></li>
+                        <li><a href="bookmarks.html">Bookmarks</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="tools.html?category=productivity">Productivity</a></li>
+                        <li><a href="tools.html?category=design">Design</a></li>
+                        <li><a href="tools.html?category=writing">Writing</a></li>
+                        <li><a href="tools.html?category=coding">Coding</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tools Nesia. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
