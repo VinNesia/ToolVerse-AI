@@ -1,11 +1,16 @@
 
-let tools = window.toolsData || [];  // Ambil data dari index.html yang sudah ditanam
+let tools = [];
 let currentPage = 1;
 const toolsPerPage = 9;
 const bookmarks = JSON.parse(localStorage.getItem('bookmarkedTools')) || [];
 
-populateCategories();
-displayTools();
+fetch('tools.json')
+    .then(response => response.json())
+    .then(data => {
+        tools = data;
+        populateCategories();
+        displayTools();
+    });
 
 function populateCategories() {
     const categories = [...new Set(tools.map(tool => tool.category))];
@@ -70,10 +75,8 @@ function toggleBookmark(id) {
     const index = bookmarks.indexOf(id);
     if (index >= 0) {
         bookmarks.splice(index, 1);
-        showNotification('Bookmark dihapus!');
     } else {
         bookmarks.push(id);
-        showNotification('Berhasil Bookmark!');
     }
     localStorage.setItem('bookmarkedTools', JSON.stringify(bookmarks));
     displayTools();
@@ -82,6 +85,7 @@ function toggleBookmark(id) {
 document.getElementById('darkModeToggle').addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
+
 
 function showNotification(message) {
     const notif = document.createElement('div');
@@ -99,24 +103,41 @@ function showNotification(message) {
     setTimeout(() => document.body.removeChild(notif), 3000);
 }
 
-// Fitur Daily Popular Tools (acak otomatis) dari data tools yang sudah ada
-const popular = [];
-const tempTools = [...tools];
-while (popular.length < 3 && tempTools.length > 0) {
-    const random = tempTools.splice(Math.floor(Math.random() * tempTools.length), 1)[0];
-    popular.push(random);
+// Tambah notifikasi ke toggleBookmark
+function toggleBookmark(id) {
+    const index = bookmarks.indexOf(id);
+    if (index >= 0) {
+        bookmarks.splice(index, 1);
+        showNotification('Bookmark dihapus!');
+    } else {
+        bookmarks.push(id);
+        showNotification('Berhasil Bookmark!');
+    }
+    localStorage.setItem('bookmarkedTools', JSON.stringify(bookmarks));
+    displayTools();
 }
-const container = document.createElement('div');
-container.className = 'container';
-container.innerHTML = '<h2>Tools Populer Hari Ini</h2>';
-popular.forEach(tool => {
-    const card = document.createElement('div');
-    card.className = 'tool-card';
-    card.innerHTML = \`
-        <h3>\${tool.name}</h3>
-        <p>\${tool.description}</p>
-        <a href="\${tool.url}" target="_blank">Kunjungi</a>
-    \`;
-    container.appendChild(card);
-});
-document.body.insertBefore(container, document.querySelector('.container'));
+
+// Fitur Daily Popular Tools (acak otomatis)
+fetch('tools.json')
+    .then(res => res.json())
+    .then(data => {
+        const popular = [];
+        while (popular.length < 3 && data.length > 0) {
+            const random = data.splice(Math.floor(Math.random() * data.length), 1)[0];
+            popular.push(random);
+        }
+        const container = document.createElement('div');
+        container.className = 'container';
+        container.innerHTML = '<h2>Tools Populer Hari Ini</h2>';
+        popular.forEach(tool => {
+            const card = document.createElement('div');
+            card.className = 'tool-card';
+            card.innerHTML = \`
+                <h3>\${tool.name}</h3>
+                <p>\${tool.description}</p>
+                <a href="\${tool.url}" target="_blank">Kunjungi</a>
+            \`;
+            container.appendChild(card);
+        });
+        document.body.insertBefore(container, document.querySelector('.container'));
+    });
